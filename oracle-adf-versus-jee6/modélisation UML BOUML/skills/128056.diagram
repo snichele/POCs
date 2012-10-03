@@ -1,0 +1,83 @@
+format 76
+
+classcanvas 128056 class_ref 128056 // Collaborateur
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 131 163 2000
+end
+classcanvas 128184 class_ref 128184 // Administrator
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 122 278 2000
+end
+classcanvas 128312 class_ref 128312 // Manager
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 140 432 2000
+end
+usecasecanvas 128440 usecase_ref 128056 // Maintien son profil à jour
+  xyzwh 373 176 3005 64 32 label_xy 338 208
+end
+usecasecanvas 128568 usecase_ref 128184 // Gère les profils
+  xyzwh 313 296 3005 64 32 label_xy 303 328
+end
+usecasecanvas 128696 usecase_ref 128312 // Recherche un profil
+  xyzwh 322 436 3005 64 32 label_xy 301 468
+end
+usecasecanvas 129208 usecase_ref 128440 // Gestion de la civilité
+  xyzwh 586 112 3005 64 32 label_xy 564 144
+end
+usecasecanvas 129464 usecase_ref 128568 // Gestion des niveaux de compétences
+  xyzwh 617 201 3005 64 32 label_xy 546 233
+end
+usecasecanvas 129720 usecase_ref 128696 // Gestion de la disponibilité collaborateur
+  xyzwh 601 284 3005 64 32 label_xy 524 316
+end
+note 130232 "[Page d'accueil]
+Une page :
+Exploration des profils
+- filtre de recherche générique (sur nom, prénom, compétence)
+- affiche une liste de collaborateurs (tableau avec nom prénom dispo et liste des 
+skills avec le niveau estimé représente visuellement de façon ergonomique)"
+  xyzwh 606 424 2000 269 289
+note 130488 "Une page
+Gestion du profil
+- civilité (nom, prénom, ancienneté, titre )
+- liste de skills (nom de la technologie - concepts de 'tags' avec autocompletion, et niveau 
+pour chacune de 0 à 4
+
+0 : jamais utilisé, ne connait aucunement le sujet
+1 : connaisance théorique basique du sujet
+2 : a déjà utilisé la technologie, a une connaissance correcte du sujet
+3 : connait très bien la technologie, peu animer une formation sur le sujet
+4 : Expert sénior sur le sujet, commiter sur la techno
+
+- disponibilité (historisée) : disponible, en mission chez ...."
+  xyzwh 769 26 2000 257 381
+line 128824 --->
+  from ref 128312 z 3006 to ref 128696
+line 128952 --->
+  from ref 128184 z 3006 to ref 128568
+line 129080 --->
+  from ref 128056 z 3006 to ref 128440
+simplerelationcanvas 129336 simplerelation_ref 128056
+  from ref 129208 z 3006 to ref 128440
+end
+simplerelationcanvas 129592 simplerelation_ref 128184
+  from ref 129464 z 3006 to ref 128440
+end
+simplerelationcanvas 129848 simplerelation_ref 128312
+  from ref 129720 z 3006 to ref 128440
+end
+simplerelationcanvas 129976 simplerelation_ref 128440
+  from ref 128568 z 3006 to ref 128440
+end
+simplerelationcanvas 130104 simplerelation_ref 128568
+  from ref 128696 z 3006 to ref 129720
+end
+line 130360 -_-_
+  from ref 130232 z 3006 to ref 128696
+line 130616 -_-_
+  from ref 130488 z 3006 to ref 129208
+line 130744 -_-_
+  from ref 130488 z 3006 to ref 129464
+line 130872 -_-_
+  from ref 130488 z 3006 to ref 129720
+end

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+                template="/WEB-INF/templates/baseTemplate.xhtml"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <ui:define name="title">
+        Recherche de profil
+    </ui:define>
+
+    <ui:define name="content">
+        <h1>Recherche de profil</h1>
+        <h:form id="form">
+
+            <p><h:outputLabel value="Entrez un nom, une compétence, un poste :" for="acMinLength" />
+                <p:autoComplete id="acMinLength" 
+                                minQueryLength="3" 
+                                value="#{indexController.searchTerm}" 
+                                effect="fade"
+                                completeMethod="#{indexController.complete}"/>
+            </p>
+            <p>
+                <p:commandButton value="Submit" id="submit" update="display" oncomplete="dialog.show()" />
+            </p>
+            <p:dialog header="Values" widgetVar="dialog"
+                      showEffect="fold" hideEffect="fold" width="200">
+                Hello !
+            </p:dialog>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+
+
